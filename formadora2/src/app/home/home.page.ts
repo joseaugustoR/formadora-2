@@ -18,7 +18,7 @@ export class HomePage {
   }
   
   gopage3() {
-    this.navCtrl.navigateForward('page3')
+    this.navCtrl.navigateForward('/page3')
   }
 
 }
