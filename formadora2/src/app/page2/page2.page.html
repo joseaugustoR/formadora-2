@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Notícias sobre Criptomoedas</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label position="floating">Selecione a Moeda</ion-label>
+    <ion-select [(ngModel)]="selectedCurrency" placeholder="Escolha">
+      <ion-select-option value="Bitcoin">Bitcoin</ion-select-option>
+      <ion-select-option value="Ethereum">Ethereum</ion-select-option>
+      <ion-select-option value="Ripple">Ripple</ion-select-option>
+      <ion-select-option value="Litecoin">Litecoin</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-button expand="full" (click)="fetchNews()">Carregar Notícias</ion-button>
+
+  <ion-list *ngIf="newsData">
+    <ion-item *ngFor="let article of newsData.articles">
+      <ion-label>
+        <h2>{{ article.title }}</h2>
+        <p>{{ article.description }}</p>
+        <a [href]="article.url" target="_blank">Leia mais</a>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+  <ion-spinner *ngIf="loading"></ion-spinner>
+</ion-content>
+
+
+<ion-content>
+  <ion-button (click)="gohome()">Página Principal</ion-button>
+  <ion-button (click)="gopage3()">Página 3</ion-button>
+</ion-content>
